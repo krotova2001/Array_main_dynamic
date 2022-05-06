@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    Array<int> A;
+    Array<int> A; //создадим класс и опробуем некоторые опрерации
     A.Add(7);
     A.Add(8);
     A.Show();
