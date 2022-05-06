@@ -10,4 +10,9 @@ int main()
     A.Show();
     A.SetSize(5,2);
     A.Show();
+    //A.FreeExtra();
+    cout << "\n";
+    cout << A.GetAt(7);
+    A.RemoveAt(6);
+    A.Show();
 }

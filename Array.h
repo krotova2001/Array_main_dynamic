@@ -79,11 +79,59 @@ public:
 		}
 	}
 	
-	void FreeExtra()
+	T GetAt(int index) // доступ к элементу по индексу
 	{
-
+		if (index <= lenth) 
+		{
+			Arr_el<T>* temp = start;
+			for (int i = 0; i < index; i++)
+			{
+				temp = temp->p;
+			}
+			return temp->data;
+		}
 	}
 
+	void RemoveAt(int index) // удаление элемента по индексу
+	{
+		if (start)
+		{
+			Arr_el<T>* temp = start;
+			for (int i = 0; i < index; i++)
+			{
+				temp = temp->p;
+			}
+			if (index<lenth) // если элемент в середине
+			{
+				temp->p->n = temp->n;
+				temp->n->p = temp->p;
+			}
+			if (index==lenth) // если это последний элемент
+			{
+				temp->p->n = nullptr;
+			}
+			if (index==0) // если это первый элемент
+			{
+				Pop();
+			}
+			delete temp;
+		}
+	}
+
+	/*
+	void FreeExtra()
+	{
+		if (start) // если на массив не пуст
+		{
+			Arr_el<T>* tmp = start;
+			while (!(tmp->data)) // если в предыдущем нет данных, то удаляем
+			{
+				delete start;
+
+			}
+		}
+	}
+	*/
 	void RemooveAll() // удалить весь массив
 	{
 		if (start) // если не пусто
